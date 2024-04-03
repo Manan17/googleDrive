@@ -1,5 +1,8 @@
 import Link from "next/link";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { FaFileDownload } from "react-icons/fa";
+import { FaFolderOpen } from "react-icons/fa";
+
 import moment from "moment";
 
 const FileUI = ({ data }) => {
@@ -10,7 +13,10 @@ const FileUI = ({ data }) => {
     >
       <div className="flex justify-between">
         <h1>{data.name}</h1>
-        <BsThreeDotsVertical />
+        <div className="flex space-x-2">
+          {data?.type === "file" ? <FaFileDownload /> : <FaFolderOpen />}
+          <BsThreeDotsVertical />
+        </div>
       </div>
 
       <div className="flex justify-between mt-4">
